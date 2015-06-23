@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <title>WishList</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body list>
+<nav>
+  <ul class="right hide-on-med-and-down">
+    <li><a href="#!">First Sidebar Link</a></li>
+    <li><a href="#!">Second Sidebar Link</a></li>
+  </ul>
+  <ul id="slide-out" class="side-nav">
+    <li><a href="#!">First Sidebar Link</a></li>
+    <li><a href="#!">Second Sidebar Link</a></li>
+  </ul>
+  <a href data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+</nav>
+
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+  <a href="#create" class="btn-floating btn-large red modal-trigger">
+    <i class="large mdi-editor-mode-edit"></i>
+  </a>
+</div>
+<p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+<!-- Modal Structure -->
+<div id="create" class="modal">
+  <form ng-submit="saveList()">
+  <div class="modal-content">
+    <h4>Create New Wish List</h4>
+      <input type="file" ng-model="datalist.image" accept="image/*" app-filereader />
+      <br>
+      <input type="text" ng-model="datalist.list_name" placeholder="Name of your wish list">
+      <br>
+      <textarea ng-model="datalist.list_description" class="materialize-textarea" placeholder="Description"></textarea>
+  </div>
+  <div class="modal-footer">
+    <div class="progress create-progress">
+      <div class="indeterminate"></div>
+    </div>
+    <button type="submit" class="modal-action waves-effect waves-green btn blue">Agree</button>
+  </div>
+  </form>
+</div>
+
+<div id="edit" class="modal">
+  <form ng-submit="updateList()">
+    <div class="card">
+      <div class="card-image">
+        <img src="{{editData.image}}" width="400" height="300">
+        <span class="card-title">Card Title</span>
+      </div>
+      <div class="card-content">
+        <input type="file" ng-model="editData.image" accept="image/*" app-filereader />
+        <br>
+        <input type="text" ng-model="editData.list_name" placeholder="Name of your wish list">
+        <br>
+        <textarea ng-model="editData.list_description" class="materialize-textarea" placeholder="Description"></textarea>
+      </div>
+      <div class="card-action">
+        <button type="submit" class="modal-action waves-effect waves-green btn blue">Agree</button>
+        <div class="progress update-progress">
+          <div class="indeterminate"></div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
