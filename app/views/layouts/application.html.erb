@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body list>
 <nav>
@@ -25,7 +26,7 @@
   </a>
 </div>
 <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<p class="alert"><%= alert %></p>
 
 <%= yield %>
 
@@ -50,8 +51,10 @@
 </div>
 
 <div id="edit" class="modal">
+<div class="row">
   <form ng-submit="updateList()">
-    <div class="card">
+  <div class="col s12 m12 l12">
+    <div class="card modal-content">
       <div class="card-image">
         <img src="{{editData.image}}" width="400" height="300">
         <span class="card-title">Card Title</span>
@@ -70,7 +73,9 @@
         </div>
       </div>
     </div>
+    </div>
   </form>
+  </div>
 </div>
 
 </body>

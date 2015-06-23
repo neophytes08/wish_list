@@ -33,6 +33,7 @@ app
               $('#create').closeModal();
               $scope.datalist = {};
               $scope.list();
+              Materialize.toast('Created!', 3000);
             }
           }, $scope.datalist);
       }
@@ -54,6 +55,7 @@ app
             $('.update-progress').fadeOut(500);
             $scope.list();
             $('#edit').closeModal();
+            Materialize.toast('Updated!', 3000);
           }, $scope.editData);
       }
       $scope.deleteList = function deleteList(list)
@@ -61,7 +63,8 @@ app
         console.log(list);
         WishServer.request("delete", '/lists/' + list.id,
           function(response){
-            $scope.wishList.splice($scope.wishList.indexOf(list), 1)
+            $scope.wishList.splice($scope.wishList.indexOf(list), 1);
+            Materialize.toast('Deleted!', 3000);
           });
       }
       // delete
