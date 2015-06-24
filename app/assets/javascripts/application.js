@@ -14,14 +14,14 @@
 //= require jquery_ujs
 //= require materialize-sprockets
 //= require angular.min
-//= require angular-base64.min
 //= require app
+//= require factory
+//= require directive
+//= require controller
 //= require turbolinks
 //= require_tree .
 
 $(document).ready(function(){
   $(".button-collapse").sideNav();
   $('.modal-trigger').leanModal();
-});//= require angular.min
-//= require angle-up
-//= require_tree ./angular
+});
