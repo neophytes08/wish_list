@@ -2,9 +2,8 @@ app
   .controller('List', [
     "$scope",
     "$http",
-    "$base64",
     "WishServer",
-    function controller($scope, $http, $base64, WishServer)
+    function controller($scope, $http, WishServer)
     {
 
       $scope.wishList = {};

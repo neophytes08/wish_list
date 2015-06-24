@@ -1,2 +1,2 @@
-var app = angular.module('app', ['base64']);
+var app = angular.module('app', []);
 
