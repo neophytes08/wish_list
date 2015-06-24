@@ -2,7 +2,7 @@ app
   .factory( "WishServer" , [
     "$http",
     function factory ( $http ) {
-      var host = "http://localhost:3000";
+      var host = "https://warm-ridge-5966.herokuapp.com";
 
       this.request  = function request ( method , path , callback , data ) {
         $http[ method ]( host + path , ( data || { } ) )
